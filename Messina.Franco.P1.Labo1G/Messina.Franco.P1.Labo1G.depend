@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1634937727 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\bibiliotecapersonal.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"bibiliotecaPersonal.h"
+
+1634937700 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\bibiliotecapersonal.h
+
+1584205420 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\main.c
+	<stdio.h>
+	<stdlib.h>
+
