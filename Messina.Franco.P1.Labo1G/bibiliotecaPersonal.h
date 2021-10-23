@@ -20,7 +20,6 @@ float ingresarFlotante(char mensaje[]);
 /// @fn int pedirOpcion(void)
 /// @brief Pedir opciones del menu y retorna ese valor.
 /// @return La opcion que eligio el usuario
-int pedirOpcion(void);
 
 /// @fn int validarRangoEntero(int, int, int)
 /// @brief Validar rango de un numero entero con limites.
@@ -47,9 +46,6 @@ int validarLargoString(char string[], int min , int max);
 /// @param min
 /// @param max
 /// @return 0 Si el sueldo no esta en el rango. 1 Si Ok.
-int verificarSueldo(float numero, int min , int max);
-/// @brief  Verificar si la cadena contiene algun un numero. Apenas lo detecta hace un break y sale del for
-/// @param list
-/// @return 0 Si error NULL , 1 si contiene algun numero. -1 Si no contiene numero.
 
+void mostrarOpciones(void);
 #endif // BIBILIOTECAPERSONAL_H_INCLUDED

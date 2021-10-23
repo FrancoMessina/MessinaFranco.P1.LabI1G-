@@ -116,24 +116,21 @@ float ingresarFlotante(char mensaje[])
 
 }
 
-int pedirOpcion(void)
+
+void mostrarOpciones(void)
 {
+    printf("-------------------------------\n");
+	printf("  *** ABM NOTEBOOKS ***\n\n");
 	printf("-------------------------------\n");
-	printf("  *** ABM LAVADERO AUTOS ***\n\n");
-	printf("-------------------------------\n");
-	int opcion;
 	system("cls");
-    printf(" 1-Alta Bicicleta\n");
-    printf(" 2-Modificar Bicicleta\n");
-    printf(" 3-Baja Bicicleta\n");
-    printf(" 4-Listar Bicicletas \n");
-    printf(" 5-Listar Tipos\n");
-    printf(" 6-Listar Colores\n");
-    printf(" 7-Listar Servicios\n");
-    printf(" 8-Alta Trabajo\n");
-    printf(" 9-Listar Trabajos\n");
-    printf(" 10-Salir\n");
-	fflush(stdin);
-	scanf("%d",&opcion);
-	return opcion;
+    printf(" [A]-Alta NOTEBOOK \n");
+    printf(" [B]-Modificar NOTEBOOK\n");
+    printf(" [C]-Baja NOTEBOOK \n");
+    printf(" [D]-Listar NOTEBOOKS \n");
+    printf(" [E]-Listar MARCAS \n");
+    printf(" [F]-Listar TIPOS\n");
+    printf(" [G]-Listar Servicios\n");
+    printf(" [H]-Alta Trabajo\n");
+    printf(" [I]-Listar Trabajos\n");
+    printf(" [J]-Salir\n");
 }
