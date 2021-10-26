@@ -48,4 +48,5 @@ int validarLargoString(char string[], int min , int max);
 /// @return 0 Si el sueldo no esta en el rango. 1 Si Ok.
 
 void mostrarOpciones(void);
+
 #endif // BIBILIOTECAPERSONAL_H_INCLUDED

@@ -39,7 +39,7 @@ int buscarLibreTrabajo(eTrabajo listaTrabajos[],int tamTrabajos)
     }
     return indice;
 }
-int altaTrabajo(eTrabajo listaTrabajos[], int tamTrabajos, eServicio listaServicios[],int tamServicios ,
+int altaTrabajo(eTrabajo listaTrabajos[], int tamTrabajos, eServicio listaServicios[],int tamServicios,
                 eNotebook listaNotebooks [],int tamNotebooks, int *pIdTrabajo, eMarca listaMarcas[],
                 int tamMarcas, eTipo listaTipos[], int tamTipos)
 {
@@ -78,9 +78,7 @@ int altaTrabajo(eTrabajo listaTrabajos[], int tamTrabajos, eServicio listaServic
             }
             printf("Ingrese fecha: ");
             scanf("%d/%d/%d", &auxTrabajo.fecha.dia, &auxTrabajo.fecha.mes, &auxTrabajo.fecha.anio);
-            while(!validarRangoEntero(auxTrabajo.fecha.dia,1,31) || (!validarRangoEntero(auxTrabajo.fecha.mes,1,12))
-                    ||(!validarRangoEntero(auxTrabajo.fecha.anio,2021,2022))
-                 )
+            while(verificarFecha(auxTrabajo.fecha.dia, auxTrabajo.fecha.mes, auxTrabajo.fecha.anio) == 0)
             {
                 printf("Error.Ingrese fecha: ");
                 scanf("%d/%d/%d", &auxTrabajo.fecha.dia, &auxTrabajo.fecha.mes, &auxTrabajo.fecha.anio);
@@ -94,40 +92,60 @@ int altaTrabajo(eTrabajo listaTrabajos[], int tamTrabajos, eServicio listaServic
     return todoOk;
 }
 
-void mostrarTrabajo(eTrabajo unTrabajo, eServicio listaServicios[],int tamServicios)
+int mostrarTrabajo(eTrabajo unTrabajo, eServicio listaS[],int tamS,
+                   eMarca listaM[],int tamM, eTipo listaT[], int tamT, eNotebook listaN[], int tamN)
 {
+    int todoOk = 0;
     char descServicio[20];
+    char descTipo[20];
+    char descMarca[20];
     int precio;
-    if(cargarDescripcionServicio(listaServicios,tamServicios,unTrabajo.idServicio,descServicio,&precio) == 1)
+    int indice;
+    indice = buscarNotebookId(listaN,tamN,unTrabajo.idNotebook);
+    if(listaS != NULL && tamS > 0 && listaM != NULL && tamM > 0 && listaT != NULL && tamT > 0 && listaN != NULL && tamN > 0 )
     {
-        printf("  %4d           %4d     %15s                $%4d           %02d/%02d/%04d    \n",
-               unTrabajo.id,
-               unTrabajo.idNotebook,
-               descServicio,
-               precio,
-               unTrabajo.fecha.dia,
-               unTrabajo.fecha.mes,
-               unTrabajo.fecha.anio);
+        if(cargarDescripcionServicio(listaS,tamS,unTrabajo.idServicio,descServicio,&precio) == 1
+                && cargarDescripcionMarca(listaM,tamM,listaN[indice].idMarca,descMarca) == 1 &&
+                cargarDescripcionTipo(listaT,tamT,listaN[indice].idTipo,descTipo) == 1 )
+        {
+
+            printf(" %d               %d                %10s      %10s     %10s      %10s              $%2d          %02d/%02d/%04d\n",
+                   unTrabajo.id,
+                   unTrabajo.idNotebook,
+                   descMarca,
+                   descTipo,
+                   listaN[indice].modelo,
+                   descServicio,
+                   precio,
+                   unTrabajo.fecha.dia,
+                   unTrabajo.fecha.mes,
+                   unTrabajo.fecha.anio);
+
+        }
+
+        todoOk = 1;
     }
-
-
+    return todoOk;
 }
-int mostrarTrabajos(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaServicios[],int tamServicios)
+int mostrarTrabajos(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS,
+                    eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN)
 {
 
     int todoOk = 0;
     int flag = 1;
-    if(listaServicios!= NULL && tamTrabajos > 0 && listaServicios != NULL && tamServicios > 0)
+    if(listaTrabajos != NULL &&  tamTrabajos > 0 && listaS != NULL && tamS
+            > 0 && listaM != NULL && tamM > 0 && listaT != NULL && tamTipos > 0 && listaN != NULL && tamN > 0)
     {
         system("cls");
-        printf("       *** Listado de Trabajos ***      \n");
-        printf("   IdTrabajo        IdNotebook          Servicio        Precio       Fecha\n");
-        printf("--------------------------------------------------------------------------------------\n");
+        printf("       ***                                          Listado de Trabajos ***      \n");
+        printf("*******************************************************************************************************************************************\n");
+        printf("[ID TRABAJO]        [ID NOTEBOOK]            [MARCA]         [TIPO]        [MODELO]       [SERVICIO]            [PRECIO]       [FECHA]\n");
+        printf("*******************************************************************************************************************************************\n");
         for(int i = 0; i < tamTrabajos; i++)
         {
-            if(!listaTrabajos[i].isEmpty)
+            if(listaTrabajos[i].isEmpty == CARGADO)
             {
-                mostrarTrabajo(listaTrabajos[i],listaServicios,tamServicios);
+                mostrarTrabajo(listaTrabajos[i],listaS,tamS,listaM,tamM,listaT,tamTipos,listaN,tamN);
                 flag = 0;
 
             }

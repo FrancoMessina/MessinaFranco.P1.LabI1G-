@@ -7,11 +7,11 @@
 #include "servicio.h"
 #include "trabajo.h"
 #include "ctype.h"
-#define TAM 10 // tamanio notebooks
+#define TAM_NOTEBOOKS 10 // tamanio notebooks
 #define TAM_TRABAJOS 20//tamanio trabajos
-#define TAM_MARCA 4 // tamanio Marca
-#define TAM_TIPO 4 // tamanio tipo
-#define TAM_SERVICIO 4 //tamanio servicio
+#define TAM_MARCAS 4 // tamanio Marca
+#define TAM_TIPOS 4 // tamanio tipo
+#define TAM_SERVICIOS 4 //tamanio servicio
 int main()
 {
     char seguir = 's';
@@ -20,9 +20,9 @@ int main()
     int contadorNotebooks = 0;
     int contadorTrabajos = 0;
     char opcion;
-    eNotebook listaNotebooks[TAM];
+    eNotebook listaNotebooks[TAM_NOTEBOOKS];
     eTrabajo listaTrabajos[TAM_TRABAJOS];
-    eTipo listaTipos[TAM_TIPO] =
+    eTipo listaTipos[TAM_TIPOS] =
     {
         { 5000, "Gamer" },
         { 5001, "Disenio" },
@@ -30,21 +30,21 @@ int main()
         { 5003, "Normalita" }
     };
 
-    eMarca listaMarca[TAM_MARCA] =
+    eMarca listaMarcas[TAM_MARCAS] =
     {
         { 1000, "Compaq"},
         { 1001, "Asus"},
         { 1002, "Acer"},
         { 1003, "HP"}
     };
-    eServicio listaServicios[TAM_SERVICIO] =
+    eServicio listaServicios[TAM_SERVICIOS] =
     {
         { 20000, "Bateria",2250},
         { 20001, "Display",10300},
         { 20002, "Mantemiento",4400},
         { 20003, "Fuente",5600}
     };
-    if(iniciarNotebooks(listaNotebooks,TAM) == 0 || iniciarTrabajo(listaTrabajos,TAM_TRABAJOS) == 0 )
+    if(iniciarNotebooks(listaNotebooks,TAM_NOTEBOOKS) == 0 || iniciarTrabajo(listaTrabajos,TAM_TRABAJOS) == 0 )
     {
         printf("Error \n");
     }
@@ -58,7 +58,7 @@ int main()
         switch (opcion)
         {
         case 'A':
-            if(!altaNotebook(listaNotebooks,TAM,&nextId,listaTipos,TAM_TIPO,listaMarca,TAM_MARCA))
+            if(!altaNotebook(listaNotebooks,TAM_NOTEBOOKS,&nextId,listaTipos,TAM_TIPOS,listaMarcas,TAM_MARCAS))
             {
                 printf("No se pudo realizar el alta\n");
             }
@@ -75,7 +75,7 @@ int main()
             }
             else
             {
-                if(!modificarNotebook(listaNotebooks,TAM,listaMarca,TAM_MARCA,listaTipos,TAM_TIPO))
+                if(!modificarNotebook(listaNotebooks,TAM_NOTEBOOKS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS))
                 {
                     printf("No se pudo modificar\n");
                 }
@@ -93,7 +93,7 @@ int main()
             }
             else
             {
-                if(!bajaNotebook(listaNotebooks,TAM,listaMarca,TAM_MARCA,listaTipos,TAM_TIPO))
+                if(!bajaNotebook(listaNotebooks,TAM_NOTEBOOKS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS))
                 {
                     printf("No se pudo realizar la baja\n");
                 }
@@ -111,31 +111,31 @@ int main()
             }
             else
             {
-                if(!ordenarNotebook(listaNotebooks, TAM, listaMarca, TAM_MARCA))
+                if(!ordenarNotebook(listaNotebooks, TAM_NOTEBOOKS, listaMarcas, TAM_MARCAS))
                 {
                     printf("No se pudo ordenar\n");
                 }
                 else
                 {
-                    mostrarNotebooks(listaNotebooks,TAM,listaMarca,TAM_MARCA,listaTipos,TAM_TIPO);
+                    mostrarNotebooks(listaNotebooks,TAM_NOTEBOOKS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS);
                     printf("Se ordenaron con exito\n");
                 }
             }
             break;
         case 'E':
-            if (!mostrarMarcas(listaMarca,TAM_MARCA))
+            if (!mostrarMarcas(listaMarcas,TAM_MARCAS))
             {
                 printf("No se pudieron mostrar las marcas\n");
             }
             break;
         case 'F':
-            if (!mostrarTipos(listaTipos,TAM_TIPO))
+            if (!mostrarTipos(listaTipos,TAM_TIPOS))
             {
                 printf("No se pudieron mostrar los tipos \n");
             }
             break;
         case 'G':
-            if (!mostrarServicios(listaServicios,TAM_SERVICIO))
+            if (!mostrarServicios(listaServicios,TAM_SERVICIOS))
             {
                 printf("No se pudieron mostrar los servicios \n");
             }
@@ -147,8 +147,8 @@ int main()
             }
             else
             {
-                if(!altaTrabajo(listaTrabajos,TAM_TRABAJOS,listaServicios,TAM_SERVICIO,listaNotebooks,TAM,&idTrabajos,
-                                listaMarca,TAM_MARCA,listaTipos,TAM_TIPO))
+                if(!altaTrabajo(listaTrabajos,TAM_TRABAJOS,listaServicios,TAM_SERVICIOS,listaNotebooks,TAM_NOTEBOOKS,&idTrabajos,
+                                listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS))
                 {
                     printf("No se pudo realizar el alta\n");
                 }
@@ -167,7 +167,7 @@ int main()
             }
             else
             {
-                if (!mostrarTrabajos(listaTrabajos,TAM_TRABAJOS,listaServicios,TAM_SERVICIO))
+                if (!mostrarTrabajos(listaTrabajos,TAM_TRABAJOS,listaServicios,TAM_SERVICIOS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS,listaNotebooks,TAM_NOTEBOOKS))
                 {
                     printf("No se pudieron mostrar los  Trabajos\n");
                 }

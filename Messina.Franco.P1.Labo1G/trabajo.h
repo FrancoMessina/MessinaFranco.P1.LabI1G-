@@ -15,8 +15,45 @@ typedef struct
 
 
 #endif // TRABAJO_H_INCLUDED
+/** \brief Iniciar los trabajos en isEmpty = 1 para que se puedan cargar los datos
+ *
+ * \param
+ * \param
+ * \return Retorna 0 si hay error 1 si esta bien.
+ *
+ */
+
 int iniciarTrabajo(eTrabajo listaTrabajos[],int tamTrabajos);
+/** \brief Busca un indice libre en el array de trabajos si es que hay espacio
+ *
+ * \param
+ * \param
+ * \return Retorna 0 si hay error 1 si esta bien
+ *
+ */
+
 int buscarLibreTrabajo(eTrabajo listaTrabajos[],int tamTrabajos);
+/** \brief Dar de alta un trabajo con todos sus datos respectivos
+ *
+ * \param
+ * \param
+ * \return Retorna 0 si hay error 1 si esta bien
+ *
+ */
 int altaTrabajo(eTrabajo listaTrabajos[], int tamTrabajos, eServicio listaServicios[],int tamServicios ,eNotebook listaNotebooks [],int tamNotebooks, int *pIdTrabajo, eMarca listaMarcas[], int tamMarcas, eTipo listaTipos[], int tamTipos);
-void mostrarTrabajo(eTrabajo unTrabajo, eServicio listaServicios[],int tamServicios);
-int mostrarTrabajos(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaServicios[],int tamServicios);
+/** \brief Mostrar un trabajo con todos sus datos
+ *
+ * \param
+ * \param
+ * \return Retorna 0 si hay error 1 si esta bien
+ *
+ */
+int mostrarTrabajo(eTrabajo unTrabajo, eServicio listaS[],int tamS, eMarca listaM[],int tamM, eTipo listaT[], int tamT, eNotebook listaN[], int tamN);
+/** \brief Mostrar todas los trabajos  que hay cargados en el sistema
+ *
+ * \param
+ * \param
+ * \return Retorna 0 si hay error 1 si esta bien
+ *
+ */
+int mostrarTrabajos(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS, eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN);
