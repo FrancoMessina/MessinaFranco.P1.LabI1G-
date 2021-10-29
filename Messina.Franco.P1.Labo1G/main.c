@@ -7,8 +7,8 @@
 #include "servicio.h"
 #include "trabajo.h"
 #include "ctype.h"
-#define TAM_NOTEBOOKS 10 // tamanio notebooks
-#define TAM_TRABAJOS 20//tamanio trabajos
+#define TAM_NOTEBOOKS 50 // tamanio notebooks
+#define TAM_TRABAJOS 10//tamanio trabajos
 #define TAM_MARCAS 4 // tamanio Marca
 #define TAM_TIPOS 4 // tamanio tipo
 #define TAM_SERVICIOS 4 //tamanio servicio
