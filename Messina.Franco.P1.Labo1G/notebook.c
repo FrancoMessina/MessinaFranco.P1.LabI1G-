@@ -216,7 +216,7 @@ int modificarNotebook(eNotebook lista[], int tamN, eMarca listaM[], int tamM, eT
         system("cls");
         printf("   *** Modificar Notebook *** \n\n");
         mostrarNotebooks(lista,tamN,listaM,tamM,listaT,tamT);
-        printf("------------------------------------------------------------\n");
+        printf("-----------------------------------------------------------------------------\n");
         id = ingresarEntero("Ingresar Id : ");
 
         indice = buscarNotebookId(lista,tamN,id);
@@ -240,7 +240,7 @@ int modificarNotebook(eNotebook lista[], int tamN, eMarca listaM[], int tamM, eT
                         printf("Ingrese un precio valido : ");
                         auxNotebook.precio = ingresarFlotante("Ingresa el precio de la Notebook: ");
                     }
-                    printf("Confirma cambio de color? (S/N)\n");
+                    printf("Confirma cambio de precio? (S/N)\n");
                     fflush(stdin);
                     scanf("%c", &confirma);
                     confirma = tolower(confirma);
@@ -266,7 +266,7 @@ int modificarNotebook(eNotebook lista[], int tamN, eMarca listaM[], int tamM, eT
                         printf("Error, ingrese id de  tipo valido \n");
                         auxNotebook.idTipo = ingresarEntero("Ingresar tipo: ");
                     }
-                    printf("Confirma cambio de marca? (S/N)\n");
+                    printf("Confirma cambio de tipo? (S/N)\n");
                     fflush(stdin);
                     scanf("%c", &confirma);
                     confirma = tolower(confirma);

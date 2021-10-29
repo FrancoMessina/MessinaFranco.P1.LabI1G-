@@ -119,10 +119,10 @@ float ingresarFlotante(char mensaje[])
 
 void mostrarOpciones(void)
 {
+    system("cls");
     printf("-------------------------------\n");
     printf("  *** ABM NOTEBOOKS ***\n\n");
     printf("-------------------------------\n");
-    system("cls");
     printf(" [A]-Alta NOTEBOOK \n");
     printf(" [B]-Modificar NOTEBOOK\n");
     printf(" [C]-Baja NOTEBOOK \n");
