@@ -174,6 +174,147 @@ int main()
             }
             break;
         case 'J':
+            switch(menuInformes())
+            {
+            case 1:
+                if(contadorNotebooks == 0)
+                {
+                    printf("No hay notebooks para mostrar \n");
+                }
+                else
+                {
+                    if (!mostrarNoteboksTipo(listaNotebooks,TAM_NOTEBOOKS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS))
+                    {
+                        printf("No se pudieron mostrar las notebooks por tipo\n");
+                    }
+                }
+                break;
+            case 2:
+                if(contadorNotebooks == 0)
+                {
+                    printf("No hay notebooks para mostrar \n");
+                }
+                else
+                {
+                    if (!mostrarNotebooksMarca(listaNotebooks,TAM_NOTEBOOKS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS))
+                    {
+                        printf("No se pudieron mostrar las notebooks por marca\n");
+                    }
+                }
+                break;
+            case 3:
+                if(contadorNotebooks == 0)
+                {
+                    printf("No hay notebooks para mostrar \n");
+                }
+                else
+                {
+                    if (!mostrarNotebooksMenorPrecio(listaNotebooks,TAM_NOTEBOOKS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS))
+                    {
+                        printf("No se pudieron mostrar las notebooks de menor precio\n");
+                    }
+                }
+                break;
+            case 4:
+                if(contadorNotebooks == 0)
+                {
+                    printf("No hay notebooks para mostrar \n");
+                }
+                else
+                {
+                    if (!mostrarNotebooksAllMarcas(listaNotebooks,TAM_NOTEBOOKS,listaMarcas, TAM_MARCAS,listaTipos,TAM_TIPOS))
+                    {
+                        printf("No se pudieron mostrar las notebooks por marca\n");
+                    }
+                }
+                break;
+            case 5:
+                if(contadorNotebooks == 0)
+                {
+                    printf("No hay notebooks para mostrar \n");
+                }
+                else
+                {
+                    if (!cantidadNotebooksMarcaTipo(listaNotebooks,TAM_NOTEBOOKS, listaMarcas, TAM_MARCAS, listaTipos,TAM_TIPOS))
+                    {
+                        printf("No se pudieron mostrar las notebooks por tipo y marca \n");
+                    }
+                }
+                break;
+            case 6:
+                if(contadorNotebooks == 0)
+                {
+                    printf("No hay notebooks para mostrar \n");
+                }
+                else
+                {
+                    if (!marcaMasElegida(listaNotebooks,TAM_NOTEBOOKS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS))
+                    {
+                        printf("No se pudieron mostrar las notebooks mas elegida por marca\n");
+                    }
+                }
+                break;
+            case 7:
+                if(contadorTrabajos == 0)
+                {
+                    printf("No hay trabajos para mostrar \n");
+                }
+                else
+                {
+                    if (!mostrarTrabajosNotebook(listaTrabajos,TAM_TRABAJOS,listaServicios,TAM_SERVICIOS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS,listaNotebooks,TAM_NOTEBOOKS))
+                    {
+                        printf("No se pudieron mostrar los trabajos de una notebook\n");
+                    }
+                }
+                break;
+            case 8:
+                if(contadorTrabajos == 0)
+                {
+                    printf("No hay trabajos para mostrar \n");
+                }
+                else
+                {
+                    if (!montoTrabajosNotebook(listaTrabajos,TAM_TRABAJOS,listaServicios,TAM_SERVICIOS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS,listaNotebooks,TAM_NOTEBOOKS))
+                    {
+                        printf("No se pudieron mostrar el monto de serivicios a una notebook\n");
+                    }
+                }
+                break;
+            case 9:
+                if(contadorTrabajos == 0)
+                {
+                    printf("No hay trabajos para mostrar \n");
+                }
+                else
+                {
+                    if (!mostrarServicioANotebooks(listaTrabajos,TAM_TRABAJOS,listaServicios,TAM_SERVICIOS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS,listaNotebooks,TAM_NOTEBOOKS))
+                    {
+                        printf("No se pudieron mostrar los servicios realizados a notebooks\n");
+                    }
+                }
+                break;
+            case 10:
+                if(contadorTrabajos == 0)
+                {
+                    printf("No hay trabajos para mostrar \n");
+                }
+                else
+                {
+                    if (!mostrarServiciosFecha(listaTrabajos,TAM_TRABAJOS,listaServicios,TAM_SERVICIOS,listaMarcas,TAM_MARCAS,listaTipos,TAM_TIPOS,listaNotebooks,TAM_NOTEBOOKS))
+                    {
+                        printf("No se pudieron mostrar los servicios en esa fecha\n");
+                    }
+                }
+                break;
+            case 11:
+                printf("Salida del menu informes \n");
+                break;
+            default:
+                printf("Opcion invalida\n");
+                break;
+            }
+            break;
+        case 'K':
             printf("Salida exitosa \n");
             seguir = 'n';
             break;

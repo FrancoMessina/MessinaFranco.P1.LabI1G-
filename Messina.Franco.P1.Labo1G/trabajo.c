@@ -160,3 +160,180 @@ int mostrarTrabajos(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[]
     return todoOk;
 
 }
+int mostrarTrabajosNotebook(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS, eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN)
+{
+    int todoOk = 0;
+    int flag = 1;
+    int idNotebook;
+    if(listaTrabajos != NULL &&  tamTrabajos > 0 && listaS != NULL && tamS
+            > 0 && listaM != NULL && tamM > 0 && listaT != NULL && tamTipos > 0 && listaN != NULL && tamN > 0)
+    {
+        mostrarNotebooks(listaN,tamN,listaM,tamM,listaT,tamTipos);
+        idNotebook = ingresarEntero("Ingresa el id de la notebook : ");
+        while(!validarIdNotebook(idNotebook,listaN,tamN))
+        {
+            printf("Error, ingrese un id valido  \n");
+            idNotebook = ingresarEntero("Ingresa el id de la notebook : ");
+        }
+        system("cls");
+        printf("       *** Listado de Trabajos de una Notebook ***      \n");
+        printf("*******************************************************************************************************************************************\n");
+        printf("[ID TRABAJO]        [ID NOTEBOOK]            [MARCA]         [TIPO]        [MODELO]       [SERVICIO]            [PRECIO]       [FECHA]\n");
+        printf("*******************************************************************************************************************************************\n");
+        for(int i = 0; i < tamTrabajos ; i++)
+        {
+            if(listaTrabajos[i].isEmpty == CARGADO && listaTrabajos[i].idNotebook == idNotebook)
+            {
+                mostrarTrabajo(listaTrabajos[i],listaS,tamS,listaM,tamM,listaT,tamTipos,listaN,tamN);
+                flag = 0;
+            }
+        }
+        if(flag)
+        {
+            printf("No hay trabajos para mostrar de esta notebook \n");
+        }
+
+        todoOk = 1;
+    }
+
+    return todoOk;
+}
+int montoTrabajosNotebook(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS,
+                          eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN)
+{
+    int todoOk = 0;
+    int flag = 1;
+    int idNotebook;
+    int acumulador = 0;
+    if(listaTrabajos != NULL &&  tamTrabajos > 0 && listaS != NULL && tamS
+            > 0 && listaM != NULL && tamM > 0 && listaT != NULL && tamTipos > 0 && listaN != NULL && tamN > 0)
+    {
+        mostrarNotebooks(listaN,tamN,listaM,tamM,listaT,tamTipos);
+        idNotebook = ingresarEntero("Ingresa el id de la notebook : ");
+        while(!validarIdNotebook(idNotebook,listaN,tamN))
+        {
+            printf("Error, ingrese un id valido  \n");
+            idNotebook = ingresarEntero("Ingresa el id de la notebook : ");
+        }
+        system("cls");
+        printf("       *** Listado de Trabajos realizados de una Notebook ***      \n");
+        printf("*******************************************************************************************************************************************\n");
+        printf("[ID TRABAJO]        [ID NOTEBOOK]            [MARCA]         [TIPO]        [MODELO]       [SERVICIO]            [PRECIO]       [FECHA]\n");
+        printf("*******************************************************************************************************************************************\n");
+        for(int i = 0; i < tamTrabajos; i++)
+        {
+            for(int j = 0; j < tamS ; j++)
+            {
+                if(listaTrabajos[i].isEmpty == CARGADO && listaTrabajos[i].idNotebook == idNotebook &&  listaTrabajos[i].idServicio == listaS[j].id)
+                {
+                    acumulador += listaS[j].precio;
+                    mostrarTrabajo(listaTrabajos[i],listaS,tamS,listaM,tamM,listaT,tamTipos,listaN,tamN);
+                    flag = 0;
+                }
+            }
+        }
+        if(flag)
+        {
+            printf("No hay trabajos para mostrar de esta notebook \n");
+        }
+        else
+        {
+            printf("\nLa suma de los importes de los servicios que recibio la notebook es: $%d\n", acumulador);
+        }
+
+        todoOk = 1;
+    }
+    return todoOk;
+}
+int mostrarServicioANotebooks(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS,
+                              eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN)
+{
+    int todoOk = 0;
+    int idServicio;
+    int flag = 1;
+
+    if(listaTrabajos != NULL &&  tamTrabajos > 0 && listaS != NULL && tamS
+            > 0 && listaM != NULL && tamM > 0 && listaT != NULL && tamTipos > 0 && listaN != NULL && tamN > 0)
+    {
+        system("cls");
+        printf("        *** Listado de  Notebooks por servicios ***                      \n");
+        printf("--------------------------------------------------------------------------------\n");
+
+        mostrarServicios(listaS, tamS);
+        idServicio = ingresarEntero("Ingresar id del servicio : ");
+
+        printf("*******************************************************************************************************************************************\n");
+        printf("[ID TRABAJO]        [ID NOTEBOOK]            [MARCA]         [TIPO]        [MODELO]       [SERVICIO]            [PRECIO]       [FECHA]\n");
+        printf("*******************************************************************************************************************************************\n");
+        for(int i = 0; i < tamTrabajos; i++)
+        {
+            if(listaTrabajos[i].idServicio == idServicio && listaTrabajos[i].isEmpty == CARGADO)
+            {
+                mostrarTrabajo(listaTrabajos[i],listaS,tamS,listaM,tamM,listaT,tamTipos,listaN,tamN);
+                flag = 0;
+            }
+        }
+
+        if(flag)
+        {
+            printf("No hay servicios para mostrar.\n");
+        }
+        todoOk = 1;
+    }
+    return todoOk;
+}
+int mostrarServiciosFecha(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS,
+                          eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN)
+{
+    int todoOk = 0;
+    char descripcion[25];
+    int precio;
+    int indiceNotebook;
+    int flag = 1;
+    eTrabajo auxTrabajo;
+    int contador = 0;
+
+
+    if(listaTrabajos != NULL &&  tamTrabajos > 0 && listaS != NULL && tamS
+            > 0 && listaM != NULL && tamM > 0 && listaT != NULL && tamTipos > 0 && listaN != NULL && tamN > 0)
+    {
+        system("cls");
+        printf("               *** Listado Servicios por fecha ***                      \n");
+        printf("******************************************************************************\n");
+
+        printf("Ingrese fecha: ");
+        scanf("%d/%d/%d", &auxTrabajo.fecha.dia, &auxTrabajo.fecha.mes, &auxTrabajo.fecha.anio);
+        while(verificarFecha(auxTrabajo.fecha.dia, auxTrabajo.fecha.mes, auxTrabajo.fecha.anio) == 0)
+        {
+            printf("Error.Ingrese fecha: ");
+            scanf("%d/%d/%d", &auxTrabajo.fecha.dia, &auxTrabajo.fecha.mes, &auxTrabajo.fecha.anio);
+        }
+        printf("*****************************\n");
+        printf("\nSERVICIO     FECHA\n");
+        printf("*****************************\n");
+
+        for(int i = 0; i < tamTrabajos; i++)
+        {
+            indiceNotebook = buscarNotebookId(listaN, tamN, listaTrabajos[i].idNotebook);
+            if(listaTrabajos[i].fecha.dia == auxTrabajo.fecha.dia && listaTrabajos[i].fecha.mes == auxTrabajo.fecha.mes && listaTrabajos[i].fecha.anio == auxTrabajo.fecha.anio && listaTrabajos[i].isEmpty == 0 && !listaN[indiceNotebook].isEmpty)
+            {
+                cargarDescripcionServicio(listaS,tamS,listaTrabajos[i].idServicio,descripcion,&precio);
+                contador++;
+                printf("%s          %02d/%02d/%04d\n",descripcion, auxTrabajo.fecha.dia, auxTrabajo.fecha.mes, auxTrabajo.fecha.anio);
+                flag = 0;
+            }
+        }
+
+        if(flag)
+        {
+            printf("No hay servicios para mostrar en la fecha.\n");
+        }
+        else
+        {
+            printf("En la fecha se realizaron %d servicio.\n",contador);
+        }
+
+        todoOk = 1;
+    }
+    return todoOk;
+}

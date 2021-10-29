@@ -112,3 +112,17 @@ int ordenarNotebook(eNotebook lista[], int tamNotebooks, eMarca marcas[], int ta
  */
 int validarIdNotebook(int id, eNotebook lista[], int tam);
 
+// Informar las notebooks del tipo seleccionado por el usuario.
+int mostrarNoteboksTipo(eNotebook lista[], int tamN, eMarca listaM[], int tamM , eTipo tipos[], int tamT);
+int mostrarNoteboksIdTipo(eNotebook lista[], int tamN, eMarca listaM[], int tamM , eTipo tipos[], int tamT , int idTipo);
+// Informar notebooks por marca
+int mostrarNotebooksMarca(eNotebook lista[], int tamN, eMarca listaM[], int tamM , eTipo tipos[], int tamT);
+int mostrarNotebooksIdMarca(eNotebook lista[], int tamN, eMarca listaM[], int tamM, eTipo tipos[], int tamT, int idMarca);
+//Informar la o las notebooks más baratas.
+int mostrarNotebooksMenorPrecio(eNotebook lista[], int tamN, eMarca listaM[], int tamM , eTipo tipos[], int tamT);
+//Mostrar un listado de las notebooks separadas por marca
+int mostrarNotebooksAllMarcas(eNotebook lista[], int tamN, eMarca listaM[], int tamM, eTipo tipos[], int tamT);
+//Elegir un tipo y una marca y contar cuantas notebooks hay de ese tipo y esa marca.
+int cantidadNotebooksMarcaTipo(eNotebook lista[], int tamN, eMarca listaM[], int tamM, eTipo tipos[], int tamT);
+//Mostrar la o las marcas más elegidas por los clientes.
+int marcaMasElegida(eNotebook lista[], int tamN, eMarca listaM[], int tamM, eTipo tipos[], int tamT);

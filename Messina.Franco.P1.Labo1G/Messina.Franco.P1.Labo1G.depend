@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1635283269 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\bibiliotecapersonal.c
+1635548674 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\bibiliotecapersonal.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	<string.h>
 	"bibiliotecaPersonal.h"
 
-1635283245 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\bibiliotecapersonal.h
+1635544278 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\bibiliotecapersonal.h
 
-1635268446 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\main.c
+1635548192 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\main.c
 	<stdio.h>
 	<stdlib.h>
 	"notebook.h"
@@ -31,7 +31,7 @@
 
 1635279733 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\marca.h
 
-1635516596 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\notebook.c
+1635548846 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\notebook.c
 	"notebook.h"
 	"bibiliotecaPersonal.h"
 	<stdio.h>
@@ -49,11 +49,11 @@
 
 1635279786 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\tipo.h
 
-1635282958 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\notebook.h
+1635546682 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\notebook.h
 	"tipo.h"
 	"marca.h"
 
-1634944317 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\servicio.c
+1635537089 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\servicio.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -61,7 +61,7 @@
 
 1635279819 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\servicio.h
 
-1635283383 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\trabajo.c
+1635547929 source:c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\trabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -71,7 +71,7 @@
 	"notebook.h"
 	"bibiliotecaPersonal.h"
 
-1635283233 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\trabajo.h
+1635547896 c:\users\franc\desktop\messina.franco.p1.labo1g\messina.franco.p1.labo1g\trabajo.h
 	"fecha.h"
 	"servicio.h"
 	"notebook.h"

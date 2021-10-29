@@ -57,3 +57,15 @@ int mostrarTrabajo(eTrabajo unTrabajo, eServicio listaS[],int tamS, eMarca lista
  *
  */
 int mostrarTrabajos(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS, eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN);
+//Pedir una notebook y mostrar todos los trabajos que se le hicieron a la misma.
+int mostrarTrabajosNotebook(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS,
+                     eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN);
+//Pedir un notebook e informar la suma de los importes de los servicios se le hicieron a la misma.
+int montoTrabajosNotebook(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS,
+                     eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN);
+//Pedir un servicio y mostrar las notebooks a las que se realizo ese servicio y la fecha.
+int mostrarServicioANotebooks(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS,
+                          eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN);
+//Pedir una fecha y mostrar todos los servicios realizados en la misma.
+int mostrarServiciosFecha(eTrabajo listaTrabajos[],int tamTrabajos, eServicio listaS[],int tamS,
+                          eMarca listaM[],int tamM, eTipo listaT[], int tamTipos, eNotebook listaN[], int tamN);

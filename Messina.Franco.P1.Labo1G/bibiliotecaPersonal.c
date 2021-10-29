@@ -132,5 +132,30 @@ void mostrarOpciones(void)
     printf(" [G]-Listar Servicios\n");
     printf(" [H]-Alta Trabajo\n");
     printf(" [I]-Listar Trabajos\n");
-    printf(" [J]-Salir\n");
+    printf(" [J]-Menu Informes\n");
+    printf(" [K]-Salir\n");
+
+}
+int menuInformes(void)
+{
+    int opcion;
+
+    system("cls");
+    printf("        *** Menu de Informes ***          \n");
+    printf("------------------------------------------------\n");
+    printf("   1-Mostrar las notebooks del tipo seleccionado por el usuario. \n");
+    printf("   2-Mostrar notebooks de una marca seleccionada. \n");
+    printf("   3-Informar la o las notebooks mas baratas.\n");
+    printf("   4-Mostrar un listado de las notebooks separadas por marca. \n");
+    printf("   5-Elegir un tipo y una marca y contar cuantas notebooks hay de ese tipo y esa marca. \n");
+    printf("   6-Mostrar la o las marcas mas elegidas por los clientes. \n");
+    printf("   7-Pedir una notebook y mostrar todos los trabajos que se le hicieron a la misma. \n");
+    printf("   8-Pedir un notebook e informar la suma de los importes de los servicios se le hicieron a la misma \n");
+    printf("   9-Pedir un servicio y mostrar las notebooks a las que se realizo ese servicio y la fecha. \n");
+    printf("   10-Pedir una fecha y mostrar todos los servicios realizados en la misma. \n");
+    printf("   11- Salir\n");
+
+    opcion = ingresarEntero("Ingresa opcion : ");
+
+    return opcion;
 }

@@ -23,7 +23,7 @@ int cargarDescripcionServicio(eServicio listaServicios[], int tam, int idServici
         }
         if (flag)
         {
-            todoOk = -1; // no habia localidad con el id que le pasaron
+            todoOk = -1;
         }
     }
     return todoOk;
